@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,6 +128,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+python
+   # Si estamos en Render, usar la base de datos de la nube
+if 'DATABASE_URL' in os.environ:
+       DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 import os
 
