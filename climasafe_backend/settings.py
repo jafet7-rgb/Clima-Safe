@@ -141,3 +141,7 @@ MEDIA_URL = '/media/'
 
 # Carpeta física dentro de tu proyecto donde Django guardará las imágenes
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Si estamos en Render, usar la base de datos de la nube
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
