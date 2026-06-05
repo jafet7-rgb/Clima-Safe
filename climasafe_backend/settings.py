@@ -125,6 +125,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 import os
 
 # Ruta pública para acceder a las fotos desde el navegador
